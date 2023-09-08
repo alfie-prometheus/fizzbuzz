@@ -55,6 +55,10 @@ footer .social>a{
     opacity: 0.75;
 }
 
+.title{
+    display: 1;
+}
+
 footer .social>a:hover{
     opacity: 0.9;
     color:var(--secondary-color);

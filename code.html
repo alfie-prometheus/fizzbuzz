@@ -1,104 +1,183 @@
 <!doctype html>
 <html lang="en" class="h-100">
-<head>
-    <title>Fizz Buzz: A Coding Project by Alfie Jaiyoon Kim</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <title>Fizz Buzz: A Coding Project by Alfie Jaiyoon Kim</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/site.css">
-    <link rel="stylesheet" href="/css/prism.css">
-    <link rel="icon" type="img/png" href="/img/favicon_io/favicon-32x32.png">
-</head>
-<body class="d-flex flex-column h-100">
-    <!-- ==== Nav Section ==== -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/Alfie_Kim_logo_removed_bg_rectangle_ma14q6_c_scale,w_200.png" class="d-inline-block align-tect-top me-3" width="120" height="100%">Fizz Buzz</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/app.html">The App</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">About</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- ==== Main Section ==== -->
-    <main class="flex-shrink-0">
-        <div class="container py-5 px-5 mt-5">
-
-            <h2 class="border-1 border-bottom border-dark">The Code for Fizz Buzz</h2>
-            <div class="row row-cols-1 row-cols-lg-2">
-                <div class="col-lg-8">
-                    <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function helloWorld() {
-                            alert("hello World");
-                        }
-                    </code>
-                    </pre>
-                </div>
-                <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays the message 'Hello World'</p>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/site.css">
+        <link rel="stylesheet" href="/css/prism.css">
+        <link rel="icon" type="img/png" href="/img/favicon_io/favicon-32x32.png">
+    </head>
+    <body class="d-flex flex-column h-100">
+        <!-- ==== Nav Section ==== -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="/img/Alfie_Kim_logo_removed_bg_rectangle_ma14q6_c_scale,w_200.png" class="d-inline-block align-tect-top me-3" width="120" height="100%">Fizz Buzz</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/app.html">The App</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="#">About</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </main>
-    <!-- ==== Footer Section ==== -->
-    <footer class="footer custom-footer mt-auto py-3">
-        <div class="container-fluid">
-            <div class="row row-cols-sm-2 row-cols-md-3">
-                <div class="col order-2 order-sm-2 col-sm-12 mt-1 order-md-1 text-light justify-content-sm-end align-items-center">
-                    <div><span class="text-muted">&copy;2023</span> Alfie Jaiyoon Kim | alfie.prometheus@gmail.com</div>
-                </div>
-                <div class="col cols-sm-5 d-flex order-sm-1 order-md-2 align-items-center justify-content-center">   
-                    <img src="/img/Alfie_Kim_logo_removed_bg_rectangle_ma14q6_c_scale,w_200.png" alt="Alfie Kim personal logo">
-                </div>
-                <div class="col cols-sm-7 d-flex align-items-center justify-content-end order-sm-2 order-md-3 pt-0 mt-0">
-                    <div class="row">
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x img-fluid" aria-hidden="true"></i></fa></a></div>
-                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x img-fluid" aria-hidden="true"></i></fa></a></div>
+        </nav>
+        <!-- ==== Main Section ==== -->
+        <main class="flex-shrink-0">
+            <div class="container py-5 px-5 mt-5">
+                <h2 class="border-1 border-bottom border-dark">The Code for Fizz Buzz</h2>
+                <div class="row row-cols-1 row-cols-lg-2">
+                    <div class="col-lg-8">
+                        <pre class="line-numbers">
+                            <code class="language-javascript">
+                                //get the values from the page
+                                //starts or controller function
+                                function getValues(){
+                                    //get values from the page
+                                    let fizzValue = document.getElementById("fizzValue").value;
+                                    let buzzValue = document.getElementById("buzzValue").value;
+
+                                    //Validate input
+                                    //Parse into integer
+                                    fizzValue = parseInt(fizzValue);
+                                    buzzValue = parseInt(buzzValue);
+
+                                    if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
+                                        //call generateNumbers
+                                        let numbers = generateNumbers();
+                                        //call displayNumbers
+                                        displayNumbers(numbers, fizzValue, buzzValue);
+                                    }else{
+                                        alert("You must enter integers.");
+                                    }
+                                }
+
+
+                                //generate numbers from 1 to 100
+                                //logic function(s)
+                                function generateNumbers(){
+
+                                    let numbers = [];
+
+                                    //get all numbers from the start to the end
+                                    for (let i = 1; i <= 100; i++) {
+
+                                        //this will execute until the i(index) gets 100
+                                        numbers.push(i);
+                                        
+                                    }
+
+                                    return numbers;
+
+                                }
+
+                                //display the multiples of 3 as "Fizz", display the multiples of 5 as "Buzz", and display the multiples of 3 and 5 as "FizzBuzz"
+                                //display or view functions
+                                function displayNumbers(numbers, fizzValue, buzzValue){
+
+                                    let templateRows="";
+
+                                    for (let index = 0; index < numbers.length; index++) {
+                                
+                                        let displayText = numbers[index];
+
+                                        if(displayText % fizzValue == 0 && displayText % buzzValue == 0){
+                                            displayText = "FizzBuzz";
+                                        }
+                                        else if(displayText % fizzValue == 0){
+                                            displayText = "Fizz";
+                                        }
+                                        else if(displayText % buzzValue == 0){
+                                            displayText = "Buzz";
+                                        }
+
+                                        templateRows += `<tr><td>${displayText}</td></tr>`;
+                                    }
+
+                                    document.getElementById("results").innerHTML = templateRows;
+                                }
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="col-lg-4">
+                        <p>"The <b>getValues</b> function serves as the starting or controller function. 
+                            It's the main function responsible for orchestrating the flow of the FizzBuzz game. 
+                            Inside it, the values for <b>Fizz</b> and <b>Buzz</b> are retrieved from the webpage 
+                            using <b>document.getElementById().value</b>. These values represent the user's 
+                            desired multiples for the game. Next, these string values are parsed into integers 
+                            using the <b>paseInt</b> function. The <b>Number.isInteger</b> function then 
+                            checks if both values are valid integers. If they are, the program continues by generating 
+                            a list of numbers from 1 to 100 through the <b>generateNumbers</b> function.
+                            The <b>generateNumbers</b> function simply iterates through numbers from 1 to 100, 
+                            pushing each number to an array which is then returned. Once we have this array of numbers, 
+                            the logic to determine which numbers are multiples of <b>Fizz</b>, <b>Buzz</b>, or both is 
+                            in the <b>displayNumbers</b> function. Within <b>displayNumbers</b>, a loop iterates 
+                            through the list of numbers. Depending on whether each number is a multiple of the <b>fizzValue</b>, 
+                            <b>buzzValue</b>, or <b>both</b>, it will replace the number with <b>Fizz</b>, <b>Buzz</b>, or 
+                            <b>FizzBuzz</b>, respectively. Each outcome is then added to a string, templateRows, formatted as 
+                            an HTML table row. Finally, the accumulated templateRows string is injected into the webpage's 
+                            'results' section, thereby displaying the results of the FizzBuzz game to the user. 
+                            If the user doesn't enter valid integers for <b>Fizz</b> and <b>Buzz</b>, 
+                            they'll be alerted with a message prompting them to enter integers."
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-    </script>
-    <!-- ====Prism JS==== -->
-    <script src="/js/prism.js"></script>
-    <script>
-        Prism.plugins.NormalizeWhitespace.setDefaults({
-        'remove-trailing': true,
-        'remove-indent': true,
-        'left-trim': true,
-        'right-trim': true
-        })
-    </script>
-</body>
+        </main>
+        <!-- ==== Footer Section ==== -->
+        <footer class="footer custom-footer mt-auto py-3">
+            <div class="container-fluid">
+                <div class="row row-cols-sm-2 row-cols-md-3">
+                    <div class="col order-2 order-sm-2 col-sm-12 mt-1 order-md-1 text-light justify-content-sm-end align-items-center">
+                        <div><span class="text-muted">&copy;2023</span> Alfie Jaiyoon Kim | alfie.prometheus@gmail.com</div>
+                    </div>
+                    <div class="col cols-sm-5 d-flex order-sm-1 order-md-2 align-items-center justify-content-center">   
+                        <img src="/img/Alfie_Kim_logo_removed_bg_rectangle_ma14q6_c_scale,w_200.png" alt="Alfie Kim personal logo">
+                    </div>
+                    <div class="col cols-sm-7 d-flex align-items-center justify-content-end order-sm-2 order-md-3 pt-0 mt-0">
+                        <div class="row">
+                            <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x img-fluid" aria-hidden="true"></i></fa></a></div>
+                            <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x img-fluid" aria-hidden="true"></i></fa></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+        </script>
+        <!-- ====Prism JS==== -->
+        <script src="/js/prism.js"></script>
+        <script>
+            Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true
+            })
+        </script>
+    </body>
 </html>
