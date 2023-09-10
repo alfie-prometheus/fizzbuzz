@@ -1,78 +1,67 @@
-//get the values from the page
-//starts or controller function
+//get values from the user.
 function getValues(){
-    //get values from the page
-    let fizzValue = document.getElementById("fizzValue").value;
+    //get the user values from the page
+    let fizzValue = document.getElementById('fizzValue').value;
     let buzzValue = document.getElementById("buzzValue").value;
 
-    //Validate input
-    //Parse into integer
+    //parse for numbers
     fizzValue = parseInt(fizzValue);
     buzzValue = parseInt(buzzValue);
 
-    if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
-        //call generateNumbers
-        let numbers = generateNumbers();
-        //call displayNumbers
-        displayNumbers(numbers, fizzValue, buzzValue);
+    //check that the numbers are integers
+    if(Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
+
+        let fbArray = fizzBuzz(fizzValue, buzzValue)
+        displayData(fbArray);
+
     }else{
-        alert("You must enter integers.");
+        alert("You must enter an integer.")
     }
 }
 
+function fizzBuzz(fizzValue, buzzValue){
+    let returnArray = [];
 
-//generate numbers from 1 to 100
-//logic function(s)
-function generateNumbers(){
+    //loop from 1 to 100 
+    for (let i = 1; i <= 100; i++){
 
-    let numbers = [];
-
-    //get all numbers from the start to the end
-    for (let i = 1; i <= 100; i++) {
-
-        //this will execute until the i(index) gets 100
-        numbers.push(i);
-        
+        if(i % fizzValue == 0 && i % buzzValue == 0){
+            returnArray.push('FizzBuzz');
+        }else if(i % fizzValue == 0){
+            returnArray.push('Fizz');
+        }else if(i % buzzValue == 0){
+            returnArray.push('Buzz');
+        }else{
+            returnArray.push(i);
+        }
     }
-
-    return numbers;
-
+    return returnArray;
 }
 
-//display the multiples of 3 as "Fizz", display the multiples of 5 as "Buzz", and display the multiples of 3 and 5 as "FizzBuzz"
-//display or view functions
-function displayNumbers(numbers, fizzValue, buzzValue){
+//loop over the array and create a tablerow for each item
+function displayData(fbArray){
 
-    let templateRows="";
+    //get the table body element from the page
+    let tableBody = document.getElementById("results");
 
-    for (let index = 0; index < numbers.length; index++) {
- 
-        let displayText = numbers[index];
+    //get the template row
+    let templateRow = document.getElementById("fbTemplate");
 
-        if(displayText % fizzValue == 0 && displayText % buzzValue == 0){
-            displayText = "FizzBuzz";
-        }
-        else if(displayText % fizzValue == 0){
-            displayText = "Fizz";
-        }
-        else if(displayText % buzzValue == 0){
-            displayText = "Buzz";
-        }
+    //clear the table first
+    tableBody.innnerHTML = "";
 
-        //check if index is a multiple of 5 (meaning we completed one row) and start a new row
-        if (index % 5 === 0){
-            templateRows += index !== 0 ?'</tr>' : '';
-            //If it's not the first item, close the previous row.
-            templateRows += '<tr>';
-        }
+    //add all the rows to the table
+    for (let index = 0; index < fbArray.length; index += 5){
+        let tableRow = document.importNode(templateRow.content, true);
 
-        templateRows += `<td>${displayText}</td>`;
+        //grab use the td put into array
+        let rowCols = tableRow.querySelectorAll("td");
+        rowCols[0].textContent = fbArray[index];
+        rowCols[1].textContent = fbArray[index+1];
+        rowCols[2].textContent = fbArray[index+2];
+        rowCols[3].textContent = fbArray[index+3];
+        rowCols[4].textContent = fbArray[index+4];
 
-        //If it's the last item and not a perfect multiple of 5, close the last row
-        if (index === numbers.length - 1){
-            templateRows += '</tr>'
-        }
+        tableBody.appendChild(tableRow);      
     }
-
-    document.getElementById("results").innerHTML = templateRows;
 }
