@@ -52,95 +52,94 @@
                     <div class="col-lg-8">
                         <pre class="line-numbers">
                             <code class="language-javascript">
-                                //get the values from the page
-                                //starts or controller function
+                                //get values from the user.
                                 function getValues(){
-                                    //get values from the page
-                                    let fizzValue = document.getElementById("fizzValue").value;
+                                    //get the user values from the page
+                                    let fizzValue = document.getElementById('fizzValue').value;
                                     let buzzValue = document.getElementById("buzzValue").value;
 
-                                    //Validate input
-                                    //Parse into integer
+                                    //parse for numbers
                                     fizzValue = parseInt(fizzValue);
                                     buzzValue = parseInt(buzzValue);
 
-                                    if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
-                                        //call generateNumbers
-                                        let numbers = generateNumbers();
-                                        //call displayNumbers
-                                        displayNumbers(numbers, fizzValue, buzzValue);
+                                    //check that the numbers are integers
+                                    if(Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
+
+                                        let fbArray = fizzBuzz(fizzValue, buzzValue)
+                                        displayData(fbArray);
+
                                     }else{
-                                        alert("You must enter integers.");
+                                        alert("You must enter an integer.")
                                     }
                                 }
 
+                                function fizzBuzz(fizzValue, buzzValue){
+                                    let returnArray = [];
 
-                                //generate numbers from 1 to 100
-                                //logic function(s)
-                                function generateNumbers(){
+                                    //loop from 1 to 100 
+                                    for (let i = 1; i <= 100; i++){
 
-                                    let numbers = [];
-
-                                    //get all numbers from the start to the end
-                                    for (let i = 1; i <= 100; i++) {
-
-                                        //this will execute until the i(index) gets 100
-                                        numbers.push(i);
-                                        
+                                        if(i % fizzValue == 0 && i % buzzValue == 0){
+                                            returnArray.push('FizzBuzz');
+                                        }else if(i % fizzValue == 0){
+                                            returnArray.push('Fizz');
+                                        }else if(i % buzzValue == 0){
+                                            returnArray.push('Buzz');
+                                        }else{
+                                            returnArray.push(i);
+                                        }
                                     }
-
-                                    return numbers;
-
+                                    return returnArray;
                                 }
 
-                                //display the multiples of 3 as "Fizz", display the multiples of 5 as "Buzz", and display the multiples of 3 and 5 as "FizzBuzz"
-                                //display or view functions
-                                function displayNumbers(numbers, fizzValue, buzzValue){
+                                //loop over the array and create a tablerow for each item
+                                function displayData(fbArray){
 
-                                    let templateRows="";
+                                    //get the table body element from the page
+                                    let tableBody = document.getElementById("results");
 
-                                    for (let index = 0; index < numbers.length; index++) {
-                                
-                                        let displayText = numbers[index];
+                                    //get the template row
+                                    let templateRow = document.getElementById("fbTemplate");
 
-                                        if(displayText % fizzValue == 0 && displayText % buzzValue == 0){
-                                            displayText = "FizzBuzz";
-                                        }
-                                        else if(displayText % fizzValue == 0){
-                                            displayText = "Fizz";
-                                        }
-                                        else if(displayText % buzzValue == 0){
-                                            displayText = "Buzz";
-                                        }
+                                    //clear the table first
+                                    tableBody.innnerHTML = "";
 
-                                        templateRows += `<tr><td>${displayText}</td></tr>`;
+                                    //add all the rows to the table
+                                    for (let index = 0; index < fbArray.length; index += 5){
+                                        let tableRow = document.importNode(templateRow.content, true);
+
+                                        //grab use the td put into array
+                                        let rowCols = tableRow.querySelectorAll("td");
+                                        rowCols[0].textContent = fbArray[index];
+                                        rowCols[1].textContent = fbArray[index+1];
+                                        rowCols[2].textContent = fbArray[index+2];
+                                        rowCols[3].textContent = fbArray[index+3];
+                                        rowCols[4].textContent = fbArray[index+4];
+
+                                        tableBody.appendChild(tableRow);      
                                     }
-
-                                    document.getElementById("results").innerHTML = templateRows;
                                 }
                             </code>
                         </pre>
                     </div>
-                    <div class="col-lg-4">
-                        <p>"The <b>getValues</b> function serves as the starting or controller function. 
-                            It's the main function responsible for orchestrating the flow of the FizzBuzz game. 
-                            Inside it, the values for <b>Fizz</b> and <b>Buzz</b> are retrieved from the webpage 
-                            using <b>document.getElementById().value</b>. These values represent the user's 
-                            desired multiples for the game. Next, these string values are parsed into integers 
-                            using the <b>paseInt</b> function. The <b>Number.isInteger</b> function then 
-                            checks if both values are valid integers. If they are, the program continues by generating 
-                            a list of numbers from 1 to 100 through the <b>generateNumbers</b> function.
-                            The <b>generateNumbers</b> function simply iterates through numbers from 1 to 100, 
-                            pushing each number to an array which is then returned. Once we have this array of numbers, 
-                            the logic to determine which numbers are multiples of <b>Fizz</b>, <b>Buzz</b>, or both is 
-                            in the <b>displayNumbers</b> function. Within <b>displayNumbers</b>, a loop iterates 
-                            through the list of numbers. Depending on whether each number is a multiple of the <b>fizzValue</b>, 
-                            <b>buzzValue</b>, or <b>both</b>, it will replace the number with <b>Fizz</b>, <b>Buzz</b>, or 
-                            <b>FizzBuzz</b>, respectively. Each outcome is then added to a string, templateRows, formatted as 
-                            an HTML table row. Finally, the accumulated templateRows string is injected into the webpage's 
-                            'results' section, thereby displaying the results of the FizzBuzz game to the user. 
-                            If the user doesn't enter valid integers for <b>Fizz</b> and <b>Buzz</b>, 
-                            they'll be alerted with a message prompting them to enter integers."
+                    <div class="col-lg-4"><br>
+                        <p>This code contains three primary functions:<br><br>
+                            1. <b>getValues()</b>:<br> 
+                                - Fetches user input values (fizzValue and buzzValue) from the web page.<br>
+                                - Converts these values to integers and validates if they're indeed integers since<br>
+                                 <b>parseInt()</b> function can return a <b>NaN</b> value.<br>
+                                - If validated, calls the <b>fizzBuzz()</b> function and then displays the results<br> 
+                                using <b>displayData()</b> function.<br>
+                                - If not integers, it alerts the user about the error.<br><br>
+                            2. <b>fizzBuzz(fizzValue, buzzValue)</b>:<br>
+                                - Runs a loop from 1 to 100.<br>
+                                - Depending on the divisibility of the current number by fizzValue and buzzValue,<br>
+                                it adds "Fizz", "Buzz", "FizzBuzz", or the number itself to an array.<br>
+                                - Returns the populated array.<br><br>
+                            3. <b>displayData(fbArray)</b>:<br>
+                                - Accepts the array generated by fizzBuzz() function.<br>
+                                - Clears any previous data in the results table on the web page.<br>
+                                - Populates the table with the new results, displaying 5 items per row.<br>
                         </p>
                     </div>
                 </div>
